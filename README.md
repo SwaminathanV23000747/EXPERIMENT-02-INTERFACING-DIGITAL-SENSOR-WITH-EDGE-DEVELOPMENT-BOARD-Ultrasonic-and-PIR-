@@ -130,15 +130,15 @@ except KeyboardInterrupt:
 ### OUPUT  
 Experiment 2A
 
-# FIGURE -04 ADD TITILE HERE 
+# FIGURE -04 Kit image
 <img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/bc019d03-30ba-4918-81c1-6b228813a9e9" />
 
 
-#  FIGURE -05 ADD TITILE HERE 
+#  FIGURE -05 Console Output
 <img width="592" height="682" alt="Screenshot 2026-04-28 141730" src="https://github.com/user-attachments/assets/85e437db-2530-4bdd-be0a-add9934df9a0" />
 
 
-# FIGURE -06 ADD TITLE HERE 
+# FIGURE -06 ThingSpeak OutPut
 <img width="1917" height="1028" alt="image" src="https://github.com/user-attachments/assets/505f5510-5e27-4e0a-aa55-3d02043ea464" />
 
 Experiment 2B
