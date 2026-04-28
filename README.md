@@ -144,7 +144,49 @@ Experiment 2A
 Experiment 2B
 ## PROGRAM (Python)
 ```
+import RPi.GPIO as GPIO
+import time
+import requests
 
+WRITE_API_KEY = "8YIZX65I411MK0YZ"
+URL = "https://api.thingspeak.com/update"
+
+PIR_PIN = 17
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(PIR_PIN, GPIO.IN)
+
+print("PIR Monitoring Started...")
+time.sleep(2)
+
+last_state = -1   # store previous state
+
+def update_thingspeak(state):
+    data = {
+        "api_key": WRITE_API_KEY,
+        "field3": state
+    }
+    try:
+        requests.get(URL, params=data)
+        print("Uploaded to ThingSpeak:", state)
+    except:
+        print("Upload Failed")
+
+while True:
+    motion = GPIO.input(PIR_PIN)
+
+    if motion != last_state:   # send only if changed
+        if motion == 1:
+            print("Motion Detected")
+            update_thingspeak(1)
+        else:
+            print("No Motion")
+            update_thingspeak(0)
+
+        last_state = motion
+        time.sleep(15)  # ThingSpeak delay
+
+    time.sleep(1)
 
  
 
@@ -156,12 +198,16 @@ Experiment 2B
 ### OUPUT  
 Experiment 2B
 
-# FIGURE -07 ADD TITILE HERE 
+# FIGURE -07  07 KIT
+<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/a6801d49-9115-4440-b958-dd0f4860211e" />
 
-#  FIGURE -08 ADD TITILE HERE 
+#  FIGURE -08 OUTPUT TERMINAL 
+<img width="1704" height="944" alt="Screenshot 2026-04-28 144027" src="https://github.com/user-attachments/assets/f881b22e-0012-4714-8d66-c0157e073742" />
 
-# FIGURE -09 ADD TITLE HERE 
+# FIGURE -09 THINGSPEAK 
+<img width="1916" height="1032" alt="Screenshot 2026-04-28 143908" src="https://github.com/user-attachments/assets/db98145a-ea29-44fd-8e10-228088f88e39" />
 
- 
+ <img width="1919" height="974" alt="Screenshot 2026-04-28 143940" src="https://github.com/user-attachments/assets/ae7b503b-f8e3-4670-b3c6-13f3c8f5f6a2" />
+
 ## RESULTS
 The Ultrasonic sensor and PIR sensor is connected to the Raspberry Pi 4 successfully and the distance and the motion detection is visualised in thingspeak confirming the proper interfacing of a digital output.
