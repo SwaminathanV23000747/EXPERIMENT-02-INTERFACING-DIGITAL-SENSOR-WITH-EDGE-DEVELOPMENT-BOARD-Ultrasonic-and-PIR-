@@ -211,3 +211,15 @@ Experiment 2B
 
 ## RESULTS
 The Ultrasonic sensor and PIR sensor is connected to the Raspberry Pi 4 successfully and the distance and the motion detection is visualised in thingspeak confirming the proper interfacing of a digital output.
+
+
+
+
+
+
+
+
+
+
+
+
